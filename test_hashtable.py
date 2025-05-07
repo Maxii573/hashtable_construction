@@ -1,3 +1,5 @@
+from hash_table import Hashtable
+
 '''
 En este archivo, vamos a testear utilizando pytest cada afunción que agregemos
 a la clase Hashtable en el archivo "hash_table.py".

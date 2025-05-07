@@ -1,12 +1,13 @@
 # Entornos virtuales
 venv/
-.env/
+env/
 .venv/
 
 # Archivos de Python
 __pycache__/
 *.py[cod]
 *.pyo
+TDD.py
 
 # Archivos de pruebas
 .coverage

@@ -9,3 +9,5 @@ Repositorio donde estará las versiones:
 https://github.com/Maxii573/hashtable_construction
 '''
 
+def test_hash():
+    assert Hashtable is not None

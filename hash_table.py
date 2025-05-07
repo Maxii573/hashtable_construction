@@ -48,3 +48,6 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 - Mostrar una representación textual de la tabla hash
 '''
 
+class Hashtable():
+    def __init__(self):
+        pass

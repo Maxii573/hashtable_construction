@@ -10,4 +10,8 @@ https://github.com/Maxii573/hashtable_construction
 '''
 
 def test_hash():
+    '''
+    Probaremos si el objeto no está vacío.
+    Pytest dará verde ya que el objeto está inicializado 
+    '''
     assert Hashtable is not None

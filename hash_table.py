@@ -49,8 +49,8 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 '''
 
 class Hashtable():
-    def __init__(self):
+    def __init__(self, capacity):
         '''
-        Faltará el atributo size que lo utilizará en la función test_hash()
+        Falta el método especial __len__()
         '''
         pass

@@ -11,8 +11,13 @@ https://github.com/Maxii573/hashtable_construction
 
 def test_hash():
     '''
-    una tabla hash debe contener una secuencia de valores, por ahora esta 
-    secuencia será de tamaño fijo establecido en la creación de la tabla hash.
-    Pytest dará rojo ya que el objeto no tiene el atributo size
+    Se cambia de atributo a capacity.
     '''
-    assert Hashtable(size=100) is not None
+    assert Hashtable(capacity=100) is not None
+
+def test_view_capacity():
+    '''
+    Ahora, vamos a hacer que la función len() pueda funcionar en nuestra tabla hash.
+    Este nos dará rojo ya que el objeto no tiene un len integrado.
+    '''
+    assert len(Hashtable(capacity=100)) == 100

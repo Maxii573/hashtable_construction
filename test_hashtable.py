@@ -11,7 +11,8 @@ https://github.com/Maxii573/hashtable_construction
 
 def test_hash():
     '''
-    Probaremos si el objeto no está vacío.
-    Pytest dará verde ya que el objeto está inicializado 
+    una tabla hash debe contener una secuencia de valores, por ahora esta 
+    secuencia será de tamaño fijo establecido en la creación de la tabla hash.
+    Pytest dará rojo ya que el objeto no tiene el atributo size
     '''
-    assert Hashtable is not None
+    assert Hashtable(size=100) is not None

@@ -50,4 +50,7 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 
 class Hashtable():
     def __init__(self):
+        '''
+        Faltará el atributo size que lo utilizará en la función test_hash()
+        '''
         pass

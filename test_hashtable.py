@@ -1,38 +1,24 @@
 from hash_table import Hashtable
 
-'''
-En este archivo, vamos a testear utilizando pytest cada afunción que agregemos
-a la clase Hashtable en el archivo "hash_table.py".
-Esto estará sincronizado con git, para que se pueda ver mejor el historial
-de la evolución de la clase Hashtable
-Repositorio donde estará las versiones:
-https://github.com/Maxii573/hashtable_construction
-'''
-
 def test_hash():
-    '''
-    Se cambia de atributo a capacity.
-    '''
     assert Hashtable(capacity=100) is not None
 
 def test_view_capacity():
     '''
-    En el archivo TDD.py explico como hay que desmenuzar un poco la función test
-    para que sea más legible y claro los pasos de prueba. en este caso lo podemos
-    hacer de esta forma:
-    '''
-    # assert Hashtable(capacity=3).values == [None, None, None]
-
-    '''
-    Pero una forma más estructurada y más legible es utilizando el método de prueba
-    (Give-When-Then) (Dado-Cuando-Entonces) que lo vimos en el archivo TDD.py
+    Vamos a agregar pares de claves y valores como un diccionario común
+    Obviamente estará en fase roja, ya que no está implementado el almacenar
+    items
     '''
     # Give
-    lista_valores = [None, None, None]
-    tabla_hash = Hashtable(capacity=3)
+    hash_table = Hashtable(capacity=100)
 
     # When 
-    valores_tabla_hash = tabla_hash.values 
+    hash_table["Nombre"] = "Ana"
+    hash_table["Edad"] = 32
+    hash_table["Acceso"] = True 
 
     # Then
-    assert valores_tabla_hash == lista_valores 
+
+    assert "Ana" in hash_table.values
+    assert 32 in hash_table.values
+    assert True in hash_table.values

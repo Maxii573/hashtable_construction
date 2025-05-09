@@ -51,10 +51,16 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 class Hashtable():
     def __init__(self, capacity):
         '''
-        falta el atributo .values, donde tendrá ranuras vacías solicitadas y
-        se llenarán con elementos None
+        Una de las formas de resolverlo es crear el atributo a partir de la 
+        capacidad y una lista con un None, donde se multiplicarán los elementos
+        None en la lista por la capacidad asignada
         '''
-        self.capacity = capacity
+        self.values = capacity * [None]
 
     def __len__(self):
-        return self.capacity
+        '''
+        y ya que es una lista de elementos, podremos utilizar la función len()
+        con el atributo values.
+        '''
+        return len(self.values)
+    

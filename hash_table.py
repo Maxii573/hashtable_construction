@@ -51,6 +51,9 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 class Hashtable():
     def __init__(self, capacity):
         '''
-        Falta el método especial __len__()
+        
         '''
-        pass
+        self.capacity = capacity
+
+    def __len__(self):
+        return self.capacity

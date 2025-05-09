@@ -17,7 +17,6 @@ def test_hash():
 
 def test_view_capacity():
     '''
-    Ahora, vamos a hacer que la función len() pueda funcionar en nuestra tabla hash.
-    Este nos dará rojo ya que el objeto no tiene un len integrado.
+    
     '''
     assert len(Hashtable(capacity=100)) == 100

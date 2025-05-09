@@ -48,15 +48,7 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 - Mostrar una representación textual de la tabla hash
 '''
 
-# Insertar un par de clave-valor
-'''
-Ahora que ya sabemos crear una tabla hash, vamos a agregarle algunas capacidades
-de almacenamiento. Python a comparación de otros lenguajes, a la hora de 
-almacenar los tipos de datos es más flexibles ya no se necesita declarar 
-el tipo de dato para las claves y los valores. 
-Aun que Python tiene la colección array integrado, este está hecho únicamente
-para valores numéricos.
-'''
+
 class Hashtable():
     def __init__(self, capacity):
         self.values = capacity * [None]
@@ -64,3 +56,12 @@ class Hashtable():
     def __len__(self):
         return len(self.values)
     
+    def __setitem__(self, key, value):
+        '''
+        Una de las formas más directas sería agregar los valores directamente
+        en la lista de valores.
+        Pero esto hará que la lista se expanda más de lo seteado, del mismo modo
+        la eliminación de un elemento no tendría que reducir la tabla hash.
+        Pero por ahora no hay capacidad de eliminar elementos pares claves-valor.
+        '''
+        self.values.append(value)

@@ -5,9 +5,8 @@ def test_hash():
 
 def test_view_capacity():
     '''
-    Vamos a agregar pares de claves y valores como un diccionario común
-    Obviamente estará en fase roja, ya que no está implementado el almacenar
-    items
+    Esto ya nos daría verde ya que está disponible la implementación de items en 
+    la tabla hash
     '''
     # Give
     hash_table = Hashtable(capacity=100)

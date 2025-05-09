@@ -17,6 +17,10 @@ def test_hash():
 
 def test_view_capacity():
     '''
-    
+    En esta implementación, en la creación de la tabla hash, debería tener
+    algunas ranuras vacías para los valores almacenados.
+    Estas ranuras nos servirán para ya preparar algunos espacios, facilita
+    el control de colisiones o búsquedas, hacer que len() funcione y para
+    hacer pruebas con TDD.
     '''
-    assert len(Hashtable(capacity=100)) == 100
+    assert Hashtable(capacity=3).values == [None, None, None]

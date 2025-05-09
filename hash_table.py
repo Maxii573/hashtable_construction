@@ -51,7 +51,8 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 class Hashtable():
     def __init__(self, capacity):
         '''
-        
+        falta el atributo .values, donde tendrá ranuras vacías solicitadas y
+        se llenarán con elementos None
         '''
         self.capacity = capacity
 

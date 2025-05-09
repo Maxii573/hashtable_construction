@@ -17,10 +17,22 @@ def test_hash():
 
 def test_view_capacity():
     '''
-    En esta implementación, en la creación de la tabla hash, debería tener
-    algunas ranuras vacías para los valores almacenados.
-    Estas ranuras nos servirán para ya preparar algunos espacios, facilita
-    el control de colisiones o búsquedas, hacer que len() funcione y para
-    hacer pruebas con TDD.
+    En el archivo TDD.py explico como hay que desmenuzar un poco la función test
+    para que sea más legible y claro los pasos de prueba. en este caso lo podemos
+    hacer de esta forma:
     '''
-    assert Hashtable(capacity=3).values == [None, None, None]
+    # assert Hashtable(capacity=3).values == [None, None, None]
+
+    '''
+    Pero una forma más estructurada y más legible es utilizando el método de prueba
+    (Give-When-Then) (Dado-Cuando-Entonces) que lo vimos en el archivo TDD.py
+    '''
+    # Give
+    lista_valores = [None, None, None]
+    tabla_hash = Hashtable(capacity=3)
+
+    # When 
+    valores_tabla_hash = tabla_hash.values 
+
+    # Then
+    assert valores_tabla_hash == lista_valores 

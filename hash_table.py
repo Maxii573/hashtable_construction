@@ -47,22 +47,19 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 - Haga que la tabla hash sea comparable utilizando el operador de prueba de igualdad
 - Mostrar una representación textual de la tabla hash
 '''
-
+BLANK = object()
 
 class Hashtable():
     def __init__(self, capacity):
-        self.values = capacity * [None]
+        '''
+        Se crea una instancia en blanco y se lo coloca como representador de 
+        las ranuras vacías
+        '''
+        self.values = capacity * [BLANK]
 
     def __len__(self):
         return len(self.values)
     
     def __setitem__(self, key, value):
-        '''
-        Viendo los errores que puede tener esta tabla hash, una es que los valores
-        que representan los espacios pueden mezclarse con el valor introducido
-        por el usuario, o sea el None, y no sabríamos que valor es una ranura vacía
-        o un dato introducido por el usuario. Una de la forma de resolver esto, es
-        utilizando un objeto que es poco probable que el usuario 
-        '''
         indice = hash(key) % len(self)
         self.values[indice] = value

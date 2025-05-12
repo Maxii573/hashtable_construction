@@ -26,9 +26,6 @@ BLANK = object()
 
 class Hashtable():
     def __init__(self, capacity):
-        '''
-
-        '''
         self.values = capacity * [BLANK]
 
     def __len__(self):
@@ -37,4 +34,14 @@ class Hashtable():
     def __setitem__(self, key, value):
         indice = hash(key) % len(self)
         self.values[indice] = value
+
+    def __getitem__(self, key):
+        '''Al igual que el método especial __setitem__, vamos a verificar el índice
+        pero esta vez para obtener el elemento y lo retornaremos.
+        Por ahora el método especial __setitem__ no guarda la clave si no que la
+        clave lo transforma a un índice, en este caso, lo que hacemos es lo mismo,
+        encontramos el valor por la transformación que le hacemos a la clave, pero 
+        esta no esta guardada.'''
+        indice = hash(key) % len(self)
+        return self.values[indice]
 

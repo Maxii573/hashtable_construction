@@ -58,10 +58,14 @@ class Hashtable():
     
     def __setitem__(self, key, value):
         '''
-        Una de las formas más directas sería agregar los valores directamente
-        en la lista de valores.
-        Pero esto hará que la lista se expanda más de lo seteado, del mismo modo
-        la eliminación de un elemento no tendría que reducir la tabla hash.
-        Pero por ahora no hay capacidad de eliminar elementos pares claves-valor.
+        Ahora vamos a convertir una clave arbitraría en un valor hash numérico
+        este valor se va a restringir por el tamaño de la lista ya que estamos
+        utilizando el operador módulo.
+        Y este valor va a hacer el índice de donde estará el valor en la lista.
+        este es un ejemplo básico de como guardar los valores, por que en una
+        tabla hash se tendría que guardar las claves también pero aca solo se
+        guarda el valor.
+        Esta solución no tiene manejo contra colisiones.
         '''
-        self.values.append(value)
+        indice = hash(key) % len(self)
+        self.values[indice] = value

@@ -5,8 +5,8 @@ def test_hash():
 
 def test_view_capacity():
     '''
-    Esto ya nos daría verde ya que está disponible la implementación de items en 
-    la tabla hash
+    Ahora vamos a confimar que la tabla no se agrande o no se achique utilizando
+    la función len()
     '''
     # Give
     hash_table = Hashtable(capacity=100)
@@ -21,3 +21,5 @@ def test_view_capacity():
     assert "Ana" in hash_table.values
     assert 32 in hash_table.values
     assert True in hash_table.values
+
+    assert len(hash_table) == 100

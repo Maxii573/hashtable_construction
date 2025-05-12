@@ -1,28 +1,3 @@
-# Construcción de un prototipo de tabla hash con TDD
-'''
-En esta sección, vamos a crear una tabla hash independientemente de los diccionarios
-de Python. Vamos a implementar un diccionario con lo aprendido y imitando sus
-características más importantes.
-
-Las implementaciones básicas que hemos hecho anteriomente y estas tablas hash que 
-vamos a implementar desde 0, no tienen un uso practico, como en lo laboral estos 
-nunca se van a implementar ya que los diccionarios que trae Python son más
-eficientes a la hora de implementar en temas de tiempo (No reinventamos la rueda),
-Los diccionarios de Python ya están optimizados y probados con miles de casos reales 
-y disminuyen las posibilidades de errores.
-
-¿Cuando se utilizan?
-Se utilizan en casos muy particulares, como sistemas embebidos o de bajo nivel, 
-donde se necesita controlar cada milímetro de memoria o rendimiento como en C,
-Hashing con requisitos criptográficos personalizados, optimización que las 
-implementaciones estándar no permiten.
-
-¿Para que aprendo entonces?
-Aprendemos más que nada para saber como se comportan internamente las tablas hash
-y así, saber cuando se utilizan.
-También en entrevistas técnicas nos pueden preguntar como funcionan las tablas hash 
-'''
-
 # Propiedades de la implemetación de la tabla hash propia
 '''
 Ahora, vamos a ver los requisitos que tendrá nuestra implementación de una tabla hash,
@@ -52,8 +27,7 @@ BLANK = object()
 class Hashtable():
     def __init__(self, capacity):
         '''
-        Se crea una instancia en blanco y se lo coloca como representador de 
-        las ranuras vacías
+
         '''
         self.values = capacity * [BLANK]
 
@@ -63,3 +37,4 @@ class Hashtable():
     def __setitem__(self, key, value):
         indice = hash(key) % len(self)
         self.values[indice] = value
+

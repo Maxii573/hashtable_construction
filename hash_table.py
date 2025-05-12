@@ -58,14 +58,11 @@ class Hashtable():
     
     def __setitem__(self, key, value):
         '''
-        Ahora vamos a convertir una clave arbitraría en un valor hash numérico
-        este valor se va a restringir por el tamaño de la lista ya que estamos
-        utilizando el operador módulo.
-        Y este valor va a hacer el índice de donde estará el valor en la lista.
-        este es un ejemplo básico de como guardar los valores, por que en una
-        tabla hash se tendría que guardar las claves también pero aca solo se
-        guarda el valor.
-        Esta solución no tiene manejo contra colisiones.
+        Viendo los errores que puede tener esta tabla hash, una es que los valores
+        que representan los espacios pueden mezclarse con el valor introducido
+        por el usuario, o sea el None, y no sabríamos que valor es una ranura vacía
+        o un dato introducido por el usuario. Una de la forma de resolver esto, es
+        utilizando un objeto que es poco probable que el usuario 
         '''
         indice = hash(key) % len(self)
         self.values[indice] = value

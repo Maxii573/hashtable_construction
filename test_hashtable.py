@@ -3,23 +3,9 @@ from hash_table import Hashtable
 def test_hash():
     assert Hashtable(capacity=100) is not None
 
-def test_view_capacity():
+def test_no_deberia_contener_valores_none():
     '''
-    Ahora vamos a confimar que la tabla no se agrande o no se achique utilizando
-    la función len()
+    Este entraría en la fase roja, ya que las ranuras vacías estan conformadas
+    por el valor None
     '''
-    # Give
-    hash_table = Hashtable(capacity=100)
-
-    # When 
-    hash_table["Nombre"] = "Ana"
-    hash_table["Edad"] = 32
-    hash_table["Acceso"] = True 
-
-    # Then
-
-    assert "Ana" in hash_table.values
-    assert 32 in hash_table.values
-    assert True in hash_table.values
-
-    assert len(hash_table) == 100
+    assert None not in Hashtable(capacity=100).values

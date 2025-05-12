@@ -3,9 +3,10 @@ import pytest
 
 
 '''
-En este ejemplo, se le dará varios elementos de pares clave-valor, ya que la 
-la tabla hash no tiene implementado un recolector de elementos, este nos dará
-error y entraremos en la fase roja
+Vamos a utilizar el decorador .fixture para simplificar y no reescribir código.
+en el archivo TDD.py está mejor explicado.
+En este caso, entraríamos a la fase verde ya que los valores introducidos ya
+los podremos obtener gracias al método especial __getitem__
 '''
 @pytest.fixture
 def hash_table():

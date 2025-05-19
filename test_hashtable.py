@@ -1,16 +1,24 @@
 from hash_table import Hashtable
 import pytest
 
-def test_deberia_buscar_la_clave():
-    '''
-    Ahora podremos verificar si un valor está en la tabla y estaremos en la 
-    fase verde.
-    '''
-    hash_table = Hashtable(capacity=100)
 
-    hash_table["Nombre"] = "Ana"
+hash_table = Hashtable(capacity=100)
+'''
+Esto nos dará fase roja, ya que no está implementado el buscar elementos
+por el método .get()
+'''
+def test_deberia_obtener_valor():
+    assert hash_table.get("Hola") != "Hola"
 
-    assert "Ana" in hash_table.values
-    assert "Edad" not in hash_table
+def test_deberia_obtener_none_cuando_falta_clave():
+    assert hash_table.get("clave faltante") is None
+
+def test_deberia_obtener_default_valor_cuando_falta_la_clave():
+    assert hash_table.get("Clave faltante", "default") == "default" 
+
+
+
+
+    
     
     

@@ -41,6 +41,21 @@ class Hashtable():
             raise KeyError(key)
         return self.values[indice]
     
-    '''
-    Necesitaremos el método especial __contains__.
-    '''
+    def __contains__(self, value):
+        '''
+        Lo que vamos a hacer es utilizando este método especial, vamos a 
+        verificar si el valor está guardado.
+        ¿Qué significa self[value]?
+        self es la instancia actual de la clase hash, Python cuando ve 
+        self[value] automaticamente llama al método especial __getitem__,
+        este si no se asignó un valor, retornará una excepción, el método
+        especial __contains__ lo tomará y retornará la excepción False.
+        En cambio si existe el valor, utilizará la condición else para 
+        retornar True.
+        '''
+        try:
+            self[value]
+        except:
+            return False
+        else:
+            return True

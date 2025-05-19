@@ -4,8 +4,9 @@ import pytest
 
 hash_table = Hashtable(capacity=100)
 '''
-Esto nos dará fase roja, ya que no está implementado el buscar elementos
-por el método .get()
+Ahora, deberíamos obtener los valores por el atributo .get(), donde 
+podremos especificarle un valor por default si no existe el valor, o 
+retornar el valor si está el valor.
 '''
 def test_deberia_obtener_valor():
     assert hash_table.get("Hola") != "Hola"

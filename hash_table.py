@@ -50,6 +50,13 @@ class Hashtable():
         else:
             return True
         
-    '''
-    Necesitaremos crear una función get() para obtener los valores.
-    '''
+    def get(self, key, default=None):
+        '''
+        Para obtener el valor, implementaremos la función get(), donde 
+        retornará el valor deseado y si no está, retornará un valor escrito por
+        el usuario o el valor por defecto que será None
+        '''
+        try:
+            return self[key]
+        except KeyError:
+            return default

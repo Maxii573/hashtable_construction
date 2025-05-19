@@ -37,7 +37,12 @@ class Hashtable():
 
     def __getitem__(self, key):
         '''
-                    
+        Verificarémos si el valor es el mismo valor por defecto que tiene la
+        tabla hash, utilizaremos el operador is en vez de ==, ya que vamos a 
+        comparar sus identidades en vez de los valores.
+        Si está todo okey, este retornará el valor dado.
         '''
         indice = hash(key) % len(self)
+        if self.values[indice] is BLANK:
+            raise KeyError(key)
         return self.values[indice]

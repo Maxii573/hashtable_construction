@@ -3,20 +3,22 @@ import pytest
 
 
 '''
-Vamos a utilizar el decorador .fixture para simplificar y no reescribir código.
-en el archivo TDD.py está mejor explicado.
-En este caso, entraríamos a la fase verde ya que los valores introducidos ya
-los podremos obtener gracias al método especial __getitem__
+Pero que pasaría si queremos obtener un valor por una clave que no se utilizo antes?
+este no tendría un valor, podriamos utilizar el objeto en blanco antes visto
+pero esta no es una buena opción, podríamos replicar un diccionario en Python, 
+que levanta una excepción KeyError 
 '''
 @pytest.fixture
-def hash_table():
-    sample_data = Hashtable(capacity=100)
-    sample_data["hola"] = "hello"
-    sample_data[98.6] = 37
-    sample_data[False] = True
-    return sample_data
+def tabla():
+    tabla_hash = Hashtable(capacity=3)
+    tabla_hash["Ciudad"] = "Buenos Aires"
+    tabla_hash["País"] = "Argentina"
+    tabla_hash["Transporte"] = True
+    return tabla_hash
 
-def test_should_find_value_by_key(hash_table):
-    assert hash_table["hola"] == "hello"
-    assert hash_table[98.6] == 37
-    assert hash_table[False] is True
+def test_tabla(tabla):
+    assert tabla["Ciudad"] == "Buenos Aires"
+    assert tabla["País"] == "Argentina"
+    assert tabla["Transporte"] == True
+
+    

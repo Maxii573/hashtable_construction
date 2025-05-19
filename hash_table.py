@@ -1,4 +1,4 @@
-# Propiedades de la implemetación de la tabla hash propia
+# Propiedades de la implementación de la tabla hash propia
 '''
 Ahora, vamos a ver los requisitos que tendrá nuestra implementación de una tabla hash,
 estos requisitos serán las características principales de nuestra tabla hash.
@@ -37,12 +37,7 @@ class Hashtable():
 
     def __getitem__(self, key):
         '''
-        Al igual que el método especial __setitem__, vamos a verificar el índice
-        pero esta vez para obtener el elemento y lo retornaremos.
-        Por ahora el método especial __setitem__ no guarda la clave si no que la
-        clave lo transforma a un índice, en este caso, lo que hacemos es lo mismo,
-        encontramos el valor por la transformación que le hacemos a la clave, pero 
-        esta no estará guardada.
+                    
         '''
         indice = hash(key) % len(self)
         return self.values[indice]

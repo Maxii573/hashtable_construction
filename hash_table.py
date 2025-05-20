@@ -56,12 +56,25 @@ class Hashtable():
             return default
     
     def __delitem__(self, key):
-        try:
-            self[key]
-        except KeyError:
-            raise KeyError
-        else:
+        '''
+        Una de las formas es reutilizar el operador in que hemos implementado 
+        en nuestra clase.
+        esta condición lo que era es que, se activará el método especial que es 
+        para el operador in __contains_, donde ejecutará self[value], como vimos
+        antes, cuando hacemos self[value] este buscará value por el método especial
+        __getitem__, donde este nos traerá el valor o un error, ya que no esta 
+        el valor definido, 
+        este le traerá un error al método especial __contains__,
+        este que está dentro de un try, nos dará un booleano, ya que nos trae un 
+        error, nos dará False. 
+        Volviendo a la condición, si es un False, levantará
+        un KeyError, en cambio, si es True, este sobreescribirá el valor de la clave
+        por un objeto en blanco.
+        '''
+        if key in self:
             self[key] = BLANK
+        else:
+            raise KeyError(key)
 
     def _index(self, key):
         indice = hash(key) % len(self)

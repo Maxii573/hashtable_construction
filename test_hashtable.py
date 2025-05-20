@@ -9,7 +9,7 @@ def tabla_hash():
 
 def test_deberia_levantar_key_error_al_eliminar(tabla_hash):
     '''
-    Estaremos el fase roja, ya que daría error por la clave que no se encuentra
+    Ya nos dará verde, por que hay un KeyError por que no hay una clave asignada
     '''
     with pytest.raises(KeyError) as exception_info:
         del tabla_hash["missing_key"]

@@ -13,13 +13,9 @@ def tabla_hash():
 
 def test_deberia_eliminar_par_clave_valor(tabla_hash):
     '''
-    Ahora, vamos a definir la eliminación de pares claves y valor, obviamente
-    nos estaremos en la fase roja ya que nos dará error por que no está implementado
-    en la tabla que se pueda eliminar claves con del.
-    Algo importante es en la cuando buscamos en el atributo .values, ya que no 
-    tendremos que definir nada, por que Python lo hace automaticamente ya que 
-    tabla_hash.values es una lista, y tabla_hash está aplicando sobre nuestro
-    objeto personalizado y no una lista interna.
+    Esto estaría en la fase verde, pero el método especial que hemos agregado
+    estaría reduciendo la lista, y como vimos anteriomente, esto no queremos.
+    Así que nuevamente estaremos en la fase roja.
     '''
     assert "Hola" in tabla_hash
     assert "hello" in tabla_hash.values
@@ -29,6 +25,7 @@ def test_deberia_eliminar_par_clave_valor(tabla_hash):
     assert "Hola" not in tabla_hash
     assert "hello" not in tabla_hash.values
 
+    assert len(tabla_hash) == 100
 
 
 

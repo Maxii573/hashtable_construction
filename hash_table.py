@@ -56,6 +56,6 @@ class Hashtable():
         except KeyError:
             return default
     
-    '''
-    Falta el método especial __delitem__.
-    '''
+    def __delitem__(self, key):
+        indice = hash(key) % len(self)
+        del self.values[indice]

@@ -1,10 +1,6 @@
 from hash_table import Hashtable
 import pytest
 
-
-'''
-
-'''
 @pytest.fixture
 def tabla_hash():
     hash_table = Hashtable(capacity=100)
@@ -13,9 +9,8 @@ def tabla_hash():
 
 def test_deberia_eliminar_par_clave_valor(tabla_hash):
     '''
-    Esto estaría en la fase verde, pero el método especial que hemos agregado
-    estaría reduciendo la lista, y como vimos anteriomente, esto no queremos.
-    Así que nuevamente estaremos en la fase roja.
+    Ya estaríamos en la fase verde por que implementamos en la tabla que se pueda
+    eliminar pares de claves-valor utilizando la función integrada del
     '''
     assert "Hola" in tabla_hash
     assert "hello" in tabla_hash.values
@@ -32,7 +27,4 @@ def test_deberia_eliminar_par_clave_valor(tabla_hash):
 
 
 
-
-    
-    
-    
+   

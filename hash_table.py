@@ -32,14 +32,13 @@ class Hashtable():
         return len(self.values)
     
     def __setitem__(self, key, value):
-        indice = hash(key) % len(self)
-        self.values[indice] = value
+        self.values[self._index(key)] = value
 
     def __getitem__(self, key):
-        indice = hash(key) % len(self)
-        if self.values[indice] is BLANK:
+        value = self.values[self._index(key)]
+        if value is BLANK:
             raise KeyError(key)
-        return self.values[indice]
+        return value
     
     def __contains__(self, value):
 
@@ -57,5 +56,25 @@ class Hashtable():
             return default
     
     def __delitem__(self, key):
+        '''
+        Para solucionar el problema de la redución de la lista, solo necesitaremos
+        cambiar el valor indicado por un objeto en blanco.
+        Pero podemos hacerlo más simplificado que es solo asignandole un objeto
+        en blanco a la clave.
+        Similar a lo que ocurria con el método especial __contains__, si asignamos
+        un valor a self[key], Python utilizará automáticamente el método especial 
+        __setitem__.
+        '''
+        # self.values[self._index(key)] = BLANK
+        self[key] = BLANK
+
+    def _index(self, key):
+        '''
+        Ya que estamos refactorizando, vemos que asignamos el índice tres veces en
+        diferentes lugares. Podemos simplificar código y hacerlo dentro de una 
+        función y luego utilizarlo donde sea necesario.
+        '''
         indice = hash(key) % len(self)
-        del self.values[indice]
+        return indice
+
+    

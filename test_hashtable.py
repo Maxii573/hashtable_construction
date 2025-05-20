@@ -7,20 +7,13 @@ def tabla_hash():
     hash_table["Hola"] = "hello"
     return hash_table
 
-def test_deberia_eliminar_par_clave_valor(tabla_hash):
+def test_deberia_levantar_key_error_al_eliminar(tabla_hash):
     '''
-    Ya estaríamos en la fase verde por que implementamos en la tabla que se pueda
-    eliminar pares de claves-valor utilizando la función integrada del
+    Estaremos el fase roja, ya que daría error por la clave que no se encuentra
     '''
-    assert "Hola" in tabla_hash
-    assert "hello" in tabla_hash.values
-
-    del tabla_hash["Hola"]
-
-    assert "Hola" not in tabla_hash
-    assert "hello" not in tabla_hash.values
-
-    assert len(tabla_hash) == 100
+    with pytest.raises(KeyError) as exception_info:
+        del tabla_hash["missing_key"]
+    assert exception_info.value.args[0] == "missing_key"
 
 
 

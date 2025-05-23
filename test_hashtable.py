@@ -9,11 +9,13 @@ def tabla_hash():
 
 def test_deberia_levantar_key_error_al_eliminar(tabla_hash):
     '''
-    Ya nos dará verde, por que hay un KeyError por que no hay una clave asignada
+    Como vimos anteriormente, para saber si un valor está almacenado, nos fijabamos
+    en el atributo .values en vez de la tabla en si y este es una lista, así que 
+    Python automáticamente lo hace hasta sin que esté implementado el operador in
     '''
-    with pytest.raises(KeyError) as exception_info:
-        del tabla_hash["missing_key"]
-    assert exception_info.value.args[0] == "missing_key"
+    assert "Hola" in tabla_hash
+    assert "hello" in tabla_hash.values
+    
 
 
 

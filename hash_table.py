@@ -40,10 +40,15 @@ class Hashtable():
             raise KeyError(key)
         return value
     
-    def __contains__(self, value):
-
+    def __contains__(self, key):
+        '''
+        este método especial que es para utilizar el operador in en nuestra 
+        tabla hash, se puede utilizar solo claves al igual que los diccionarios
+        en Python, ya que este va a utilizar el método especial __getitem__ y este,
+        utiliza solo claves para encontrar los valores
+        '''
         try:
-            self[value]
+            self[key]
         except:
             return False
         else:
@@ -56,21 +61,6 @@ class Hashtable():
             return default
     
     def __delitem__(self, key):
-        '''
-        Una de las formas es reutilizar el operador in que hemos implementado 
-        en nuestra clase.
-        esta condición lo que era es que, se activará el método especial que es 
-        para el operador in __contains_, donde ejecutará self[value], como vimos
-        antes, cuando hacemos self[value] este buscará value por el método especial
-        __getitem__, donde este nos traerá el valor o un error, ya que no esta 
-        el valor definido, 
-        este le traerá un error al método especial __contains__,
-        este que está dentro de un try, nos dará un booleano, ya que nos trae un 
-        error, nos dará False. 
-        Volviendo a la condición, si es un False, levantará
-        un KeyError, en cambio, si es True, este sobreescribirá el valor de la clave
-        por un objeto en blanco.
-        '''
         if key in self:
             self[key] = BLANK
         else:

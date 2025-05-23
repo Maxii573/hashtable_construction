@@ -32,6 +32,10 @@ class Hashtable():
         return len(self.values)
     
     def __setitem__(self, key, value):
+        '''
+        El solo hecho de actualizar un valor por una clave ya existente ya lo 
+        resuelve el método especial __setitem__.
+        '''
         self.values[self._index(key)] = value
 
     def __getitem__(self, key):
@@ -70,4 +74,3 @@ class Hashtable():
         indice = hash(key) % len(self)
         return indice
 
-    

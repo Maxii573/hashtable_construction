@@ -1,21 +1,26 @@
 from hash_table import Hashtable
 import pytest
 
-@pytest.fixture
-def tabla_hash():
+def test_actualizar_valor():
+    '''
+    Ya que ya está implementado el actualizar un valor, vamos a ver diferentes 
+    casos y si la tabla no disminuye la longitud, como ya está implementado y está
+    bien, estaremos en la fase verde
+    '''
     hash_table = Hashtable(capacity=100)
-    hash_table["Hola"] = "hello"
-    return hash_table
+    hash_table["hola"] = "hello"
+    hash_table[98.6] = 37
+    hash_table[False] = True
 
-def test_deberia_levantar_key_error_al_eliminar(tabla_hash):
-    '''
-    Como vimos anteriormente, para saber si un valor está almacenado, nos fijabamos
-    en el atributo .values en vez de la tabla en si y este es una lista, así que 
-    Python automáticamente lo hace hasta sin que esté implementado el operador in
-    '''
-    assert "Hola" in tabla_hash
-    assert "hello" in tabla_hash.values
-    
+    assert hash_table["hola"] == "hello"
+
+    hash_table["hola"] = "hallo"
+    assert hash_table["hola"] == "hallo"
+
+    assert hash_table[98.6] == 37
+    assert hash_table[False] is True
+    assert len(hash_table) == 100
+
 
 
 

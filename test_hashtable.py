@@ -1,30 +1,25 @@
 from hash_table import Hashtable
 import pytest
-
-def test_actualizar_valor():
+@pytest.fixture
+def tabla_hash():
     '''
-    Ya que ya está implementado el actualizar un valor, vamos a ver diferentes 
-    casos y si la tabla no disminuye la longitud, como ya está implementado y está
-    bien, estaremos en la fase verde
+    Ahora, lo que vamos a hacer es refactorizar. En nuestra tabla hash, solo vamos
+    a poder manipular valores en una lista, no se guardan las claves, en los 
+    diccionarios en python, podremos iterar sobre sus claves, valores o pares de 
+    clave y valor llamados artículos (pairs), pero nuestra tabla hash no tiene
+    esta capacidad de guardar las claves para iterar o manipular sobre artículos.
     '''
-    hash_table = Hashtable(capacity=100)
-    hash_table["hola"] = "hello"
-    hash_table[98.6] = 37
-    hash_table[False] = True
+    tabla = Hashtable(capacity=30)
+    tabla["Nombre"] = "Maxi"
+    tabla["Edad"] = 19
+    tabla["Pais"] = "Argentina"
+    tabla["Acceso"] = True
+    return tabla
 
-    assert hash_table["hola"] == "hello"
-
-    hash_table["hola"] = "hallo"
-    assert hash_table["hola"] == "hallo"
-
-    assert hash_table[98.6] == 37
-    assert hash_table[False] is True
-    assert len(hash_table) == 100
-
-
-
-
-
-
+def test_tabla(tabla_hash):
+    assert ("Nombre", "Maxi") in tabla_hash
+    assert ("Edad", 19) in tabla_hash
+    assert ("Pais", "Argentina") in tabla_hash
+    assert ("Acceso", "True") in tabla_hash
 
    

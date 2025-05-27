@@ -25,6 +25,9 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 BLANK = object()
 
 class Hashtable():
+    '''
+    En los siguientes avances, vamos a refactorizar la tabla hash
+    '''
     def __init__(self, capacity):
         self.values = capacity * [BLANK]
 
@@ -32,10 +35,6 @@ class Hashtable():
         return len(self.values)
     
     def __setitem__(self, key, value):
-        '''
-        El solo hecho de actualizar un valor por una clave ya existente ya lo 
-        resuelve el método especial __setitem__.
-        '''
         self.values[self._index(key)] = value
 
     def __getitem__(self, key):
@@ -45,12 +44,6 @@ class Hashtable():
         return value
     
     def __contains__(self, key):
-        '''
-        este método especial que es para utilizar el operador in en nuestra 
-        tabla hash, se puede utilizar solo claves al igual que los diccionarios
-        en Python, ya que este va a utilizar el método especial __getitem__ y este,
-        utiliza solo claves para encontrar los valores
-        '''
         try:
             self[key]
         except:

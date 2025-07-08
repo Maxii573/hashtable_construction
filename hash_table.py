@@ -73,16 +73,11 @@ class Hashtable():
     @property
     def pairs(self):
         '''
-        Crearemos esta función para que el usuario tenga la lista de los elementos
-        pero en una copia y cualquier alteración de la lista, será en una copia y 
-        no en el estado interno.
-        Y te vas a preguntar, ¿Qué es ese @property?
-        Ese @property está para que el usuario vea el método como un atributo. O sea,
-        que no le aparezca los () a la hora de utilizar pairs. Se podría decir que sería
-        para que se camufle el método como un atributo.
-        Además de que se vea limpio, esto hace si habia posibilidad de acceder al 
-        estado interno, ya no lo pueda hacer.
+        Para imitar aun más el método dict.items(), podríamos no incluir los 
+        espacios en blanco, en este caso, la copia nos retornaria los pares 
+        de valores y lo espacios en blanco que serían None's.
+        Ya no deberiamos crear una lista con el método .copy() ya que la 
+        list comprehension ya la crea y retorna
         '''
-        return self._pairs.copy()
-
+        return [pair for pair in self._pairs if pair]
 

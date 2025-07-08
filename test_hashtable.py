@@ -12,6 +12,6 @@ def tabla_hash():
 
 def test_deberia_retornar_una_copia_de_los_pares(tabla_hash):
     '''
-    Ahora estaremos en la fase verde ya que este nos dará una copia de la lista interna
+    Ahora estaremos en la fase verde ya que este no habrá None en la lista de copia
     '''
-    assert tabla_hash.pairs is not tabla_hash.pairs
+    assert None not in tabla_hash.pairs

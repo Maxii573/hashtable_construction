@@ -25,20 +25,22 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 
 
 class Hashtable():
-    '''
-    el atributo .pairs es vulnerable
-    '''
     def __init__(self, capacity):
-        self.pairs = capacity * [None]
+        '''
+        Agregando un guion bajo al atributo .pairs, habermos que el usuario no
+        pueda manipular la lista interna pero nosotros queremos que el usuario
+        pueda ver pero sin manipular nada, para ello crearemos el método pairs
+        '''
+        self._pairs = capacity * [None]
 
     def __len__(self):
-        return len(self.pairs)
+        return len(self._pairs)
         
     def __setitem__(self, key, value):
-        self.pairs[self._index(key)] = (key, value)
+        self._pairs[self._index(key)] = (key, value)
 
     def __getitem__(self, key):
-        pairs = self.pairs[self._index(key)]
+        pairs = self._pairs[self._index(key)]
         if pairs is None:
             raise KeyError(key)
         else:
@@ -54,7 +56,7 @@ class Hashtable():
 
     def __delitem__(self, key):
         if key in self:
-            self.pairs[self._index(key)] = None
+            self._pairs[self._index(key)] = None
         else:
             raise KeyError(key)
 
@@ -67,4 +69,20 @@ class Hashtable():
     def _index(self, key):
         indice = hash(key) % len(self)
         return indice
+
+    @property
+    def pairs(self):
+        '''
+        Crearemos esta función para que el usuario tenga la lista de los elementos
+        pero en una copia y cualquier alteración de la lista, será en una copia y 
+        no en el estado interno.
+        Y te vas a preguntar, ¿Qué es ese @property?
+        Ese @property está para que el usuario vea el método como un atributo. O sea,
+        que no le aparezca los () a la hora de utilizar pairs. Se podría decir que sería
+        para que se camufle el método como un atributo.
+        Además de que se vea limpio, esto hace si habia posibilidad de acceder al 
+        estado interno, ya no lo pueda hacer.
+        '''
+        return self._pairs.copy()
+
 

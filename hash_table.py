@@ -26,11 +26,6 @@ Nuestra tabla hash va a tener otras características no escenciales pero que son
 
 class Hashtable():
     def __init__(self, capacity):
-        '''
-        Agregando un guion bajo al atributo .pairs, habermos que el usuario no
-        pueda manipular la lista interna pero nosotros queremos que el usuario
-        pueda ver pero sin manipular nada, para ello crearemos el método pairs
-        '''
         self._pairs = capacity * [None]
 
     def __len__(self):
@@ -72,12 +67,5 @@ class Hashtable():
 
     @property
     def pairs(self):
-        '''
-        Para imitar aun más el método dict.items(), podríamos no incluir los 
-        espacios en blanco, en este caso, la copia nos retornaria los pares 
-        de valores y lo espacios en blanco que serían None's.
-        Ya no deberiamos crear una lista con el método .copy() ya que la 
-        list comprehension ya la crea y retorna
-        '''
         return [pair for pair in self._pairs if pair]
 

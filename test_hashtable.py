@@ -10,8 +10,10 @@ def tabla_hash():
     tabla["Acceso"] = True
     return tabla
 
-def test_deberia_retornar_una_copia_de_los_pares(tabla_hash):
+def test_no_deberia_contener_valor_none_cuando_se_crea(tabla_hash):
     '''
-    Ahora estaremos en la fase verde ya que este no habrá None en la lista de copia
+    Ahora, podríamos tener un atributo para que el usuario pueda ver y obtener 
+    una lista de los valores que tiene la tabla hash, ya que no está implementado
+    estaremos en la fase roja
     '''
-    assert None not in tabla_hash.pairs
+    assert None not in Hashtable(capacity=100).values

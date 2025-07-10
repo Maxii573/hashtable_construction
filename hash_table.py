@@ -69,3 +69,15 @@ class Hashtable():
     def pairs(self):
         return [pair for pair in self._pairs if pair]
 
+    @property
+    def values(self):
+        '''
+        Esta función nos dará una lista de los valores que tiene la tabla hash,
+        es igual a la función pairs, salvo que esta en vez de iterar sobre 
+        la lista de elementos de la tabla hash, va a iterar sobre la función
+        pairs, que este será una lista de tuplas de los elementos sin los None
+        y de esas tuplas vamos a obtener el segundo valor que serán los valores.
+        Esta función también tendrá @property así solo se pueda ver una copia 
+        de los valores.
+        '''
+        return [value[1] for value in self.pairs]

@@ -12,8 +12,6 @@ def tabla_hash():
 
 def test_no_deberia_contener_valor_none_cuando_se_crea(tabla_hash):
     '''
-    Ahora, podríamos tener un atributo para que el usuario pueda ver y obtener 
-    una lista de los valores que tiene la tabla hash, ya que no está implementado
-    estaremos en la fase roja
+    Estaremos en la fase verde por que ya está implementado .value
     '''
     assert None not in Hashtable(capacity=100).values
